@@ -4,7 +4,7 @@ export default async function handler(req, res) {
   }
 
   const { plan } = req.body;
-  const secretKey = process.env.STRIPE_SECRET_KEY;
+  const secretKey = process.env.Stripe_Secrxet_key;
 
   const priceIds = {
     starter: 'price_1TYoRNFLrUCIoBlRNyvHrF70',
