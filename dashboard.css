@@ -321,3 +321,62 @@ body {
 .trend-card.rising  .trend-stat { color: #4ade80; }
 .trend-card.falling .trend-stat { color: #f87171; }
 .trend-card.stable  .trend-stat { color: #8888aa; }
+
+/* LIVE NEWS */
+.loading {
+  color: #8888aa;
+  font-size: 0.9rem;
+  padding: 1rem 0;
+}
+
+.news-card {
+  background: #12121e;
+  border: 1px solid #1e1e2e;
+  border-radius: 10px;
+  padding: 1.25rem;
+  margin-bottom: 0.75rem;
+  transition: border-color 0.2s;
+}
+
+.news-card:hover {
+  border-color: #7c6aff;
+}
+
+.news-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.news-source {
+  font-size: 0.75rem;
+  color: #7c6aff;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.news-date {
+  font-size: 0.75rem;
+  color: #44445a;
+}
+
+.news-title {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #e8e8f0;
+  text-decoration: none;
+  margin-bottom: 0.4rem;
+  line-height: 1.4;
+}
+
+.news-title:hover {
+  color: #7c6aff;
+}
+
+.news-desc {
+  font-size: 0.82rem;
+  color: #8888aa;
+  line-height: 1.5;
+}
