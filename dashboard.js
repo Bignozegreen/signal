@@ -1,5 +1,3 @@
-const API_KEY = '130d156568e541ea945acd514614d73d';
-
 const topics = document.querySelectorAll('.sidebar-nav ul li');
 topics.forEach(function (item) {
   item.addEventListener('click', function () {
@@ -14,7 +12,7 @@ async function loadNews(company) {
   const newsList = document.getElementById('news-list');
   newsList.innerHTML = '<p class="loading">Loading live news...</p>';
 
-  const url = `https://newsapi.org/v2/everything?q=${encodeURIComponent(company)}&sortBy=publishedAt&pageSize=5&apiKey=${API_KEY}`;
+  const url = `/api/news?company=${encodeURIComponent(company)}`;
 
   try {
     const response = await fetch(url);
