@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signal — Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css" />
+  </head>
+  <body>
+
+    <div class="app">
+
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+        <div class="sidebar-logo">Signal</div>
+        <nav class="sidebar-nav">
+          <p class="nav-label">Tracked Topics</p>
+          <ul>
+            <li class="active">
+              <span class="dot green"></span> Apple Inc
+            </li>
+            <li>
+              <span class="dot yellow"></span> Tesla
+            </li>
+            <li>
+              <span class="dot red"></span> Nvidia
+            </li>
+            <li>
+              <span class="dot green"></span> Bitcoin
+            </li>
+            <li>
+              <span class="dot green"></span> OpenAI
+            </li>
+          </ul>
+          <a href="#" class="add-topic">+ Add Topic</a>
+        </nav>
+        <div class="sidebar-footer">
+          <div class="plan-badge">Pro Plan</div>
+          <p>David Green</p>
+        </div>
+      </aside>
+
+      <!-- MAIN CONTENT -->
+      <main class="main">
+
+        <!-- TOP BAR -->
+        <div class="topbar">
+          <div>
+            <h1 class="page-title">Apple Inc</h1>
+            <p class="page-sub">Narrative analysis · Updated 14 minutes ago</p>
+          </div>
+          <div class="alert-badge">3 new signals</div>
+        </div>
+
+        <!-- SIGNAL SCORE -->
+        <div class="score-row">
+          <div class="score-card">
+            <p class="score-label">Narrative Score</p>
+            <p class="score-value positive">72 <span>/ 100</span></p>
+            <p class="score-change">▲ +8 from last week</p>
+          </div>
+          <div class="score-card">
+            <p class="score-label">Tone Shift</p>
+            <p class="score-value neutral">Cautious</p>
+            <p class="score-change">Was: Confident · 12 days ago</p>
+          </div>
+          <div class="score-card">
+            <p class="score-label">Mentions This Week</p>
+            <p class="score-value positive">1,842</p>
+            <p class="score-change">▲ +23% vs last week</p>
+          </div>
+          <div class="score-card">
+            <p class="score-label">Community Sentiment</p>
+            <p class="score-value negative">Anxious</p>
+            <p class="score-change">▼ Shifted 3 days ago</p>
+          </div>
+        </div>
+
+        <!-- TODAY'S BRIEFING -->
+        <div class="section">
+          <h2 class="section-title">Today's Briefing</h2>
+          <div class="briefing-card">
+            <div class="briefing-date">Monday, 19 May 2026</div>
+            <p class="briefing-text">
+              Apple's CEO used the word <strong>"headwinds"</strong> 6 times in yesterday's podcast appearance on The All-In Podcast — up from 0 uses in the previous quarter's call. Simultaneously, three separate financial YouTube channels mentioned Apple supply chain concerns unprompted this week. Community sentiment on Reddit's r/investing shifted from <em>excited</em> to <em>cautious</em> over the past 72 hours, with a 34% increase in negative language around the Vision Pro product line.
+            </p>
+            <p class="briefing-text">
+              This pattern has preceded price corrections in 4 of the last 6 similar instances tracked by Signal.
+            </p>
+          </div>
+        </div>
+
+        <!-- SIGNAL ALERTS -->
+        <div class="section">
+          <h2 class="section-title">Signal Alerts</h2>
+          <div class="alerts-list">
+            <div class="alert-card high">
+              <div class="alert-header">
+                <span class="alert-tag high">High Signal</span>
+                <span class="alert-time">2 hours ago</span>
+              </div>
+              <p class="alert-title">CEO language shifted — "headwinds" used 6x in one appearance</p>
+              <p class="alert-detail">Detected in: The All-In Podcast, Episode 178 · Tim Cook interview</p>
+            </div>
+            <div class="alert-card medium">
+              <div class="alert-header">
+                <span class="alert-tag medium">Medium Signal</span>
+                <span class="alert-time">Yesterday</span>
+              </div>
+              <p class="alert-title">3 podcasts mentioned Apple supply chain unprompted this week</p>
+              <p class="alert-detail">Detected in: Acquired, My First Million, 20VC</p>
+            </div>
+            <div class="alert-card low">
+              <div class="alert-header">
+                <span class="alert-tag low">Watch</span>
+                <span class="alert-time">3 days ago</span>
+              </div>
+              <p class="alert-title">Reddit sentiment around Vision Pro turned net negative</p>
+              <p class="alert-detail">Detected in: r/investing, r/apple · 847 posts analysed</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- LANGUAGE TRENDS -->
+        <div class="section">
+          <h2 class="section-title">Language Trends — Last 30 Days</h2>
+          <div class="trends-grid">
+            <div class="trend-card rising">
+              <p class="trend-word">"headwinds"</p>
+              <p class="trend-stat">▲ 340% increase</p>
+            </div>
+            <div class="trend-card rising">
+              <p class="trend-word">"supply chain"</p>
+              <p class="trend-stat">▲ 128% increase</p>
+            </div>
+            <div class="trend-card falling">
+              <p class="trend-word">"innovation"</p>
+              <p class="trend-stat">▼ 44% decrease</p>
+            </div>
+            <div class="trend-card falling">
+              <p class="trend-word">"excited"</p>
+              <p class="trend-stat">▼ 61% decrease</p>
+            </div>
+            <div class="trend-card rising">
+              <p class="trend-word">"competition"</p>
+              <p class="trend-stat">▲ 89% increase</p>
+            </div>
+            <div class="trend-card stable">
+              <p class="trend-word">"growth"</p>
+              <p class="trend-stat">→ Stable</p>
+            </div>
+          </div>
+        </div>
+
+      </main>
+    </div>
+
+    <script src="dashboard.js"></script>
+  </body>
+</html>
