@@ -2,7 +2,7 @@ export default async function handler(req, res) {
   const company = req.query.company || 'Apple';
   const apiKey = process.env.Guardian;
 
-  const url = `https://content.guardianapis.com/search?q=${encodeURIComponent(company)}&api-key=${apiKey}&show-fields=headline,trailText,byline&order-by=newest&page-size=5`;
+  const url = `https://content.guardianapis.com/search?q=${encodeURIComponent(company)}&api-key=${apiKey}&show-fields=headline,trailText&order-by=newest&page-size=5&section=business|technology|money`;
 
   try {
     const response = await fetch(url);
