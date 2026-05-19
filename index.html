@@ -79,10 +79,10 @@
     <section class="waitlist">
   <h2>Be first to know when we launch.</h2>
   <p>Join the waitlist and get 30 days free when Signal goes live.</p>
-  <div class="waitlist-form">
-    <input type="email" id="email-input" placeholder="your@email.com" />
-    <button id="join-btn">Join Waitlist</button>
-  </div>
+  <form class="waitlist-form" id="waitlist-form">
+    <input type="email" id="email-input" name="email" placeholder="your@email.com" required />
+    <button id="join-btn" type="submit">Join Waitlist</button>
+  </form>
   <p id="confirm-message" class="hidden">You're on the list. We'll be in touch.</p>
 </section>
 

@@ -1,16 +1,25 @@
+const form = document.getElementById('waitlist-form');
 const btn = document.getElementById('join-btn');
 const input = document.getElementById('email-input');
 const confirm = document.getElementById('confirm-message');
 
-btn.addEventListener('click', function () {
-  const email = input.value.trim();
-  if (!email || !email.includes('@')) {
-    input.style.borderColor = '#ff6a6a';
-    return;
-  }
-  input.style.borderColor = '#7c6aff';
+form.addEventListener('submit', async function (e) {
+  e.preventDefault();
+  btn.textContent = 'Joining...';
   btn.disabled = true;
-  btn.textContent = 'Joined!';
-  confirm.classList.remove('hidden');
-  confirm.classList.add('confirm');
+
+  const response = await fetch('https://formspree.io/f/mjgzkqwb', {
+    method: 'POST',
+    headers: { 'Accept': 'application/json' },
+    body: new FormData(form)
+  });
+
+  if (response.ok) {
+    form.style.display = 'none';
+    confirm.classList.remove('hidden');
+    confirm.classList.add('confirm');
+  } else {
+    btn.textContent = 'Try again';
+    btn.disabled = false;
+  }
 });
