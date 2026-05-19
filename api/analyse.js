@@ -20,13 +20,19 @@ export default async function handler(req, res) {
   "score": number between 0-100,
   "summary": "2-3 sentence plain English summary of the narrative",
   "key_signals": ["signal 1", "signal 2", "signal 3"],
-  "tone_words": ["word1", "word2", "word3", "word4"]
+  "tone_words": ["word1", "word2", "word3", "word4"],
+  "alerts": [
+    {"level": "high" | "medium" | "low", "title": "short alert title", "detail": "one sentence detail"}
+  ],
+  "language_trends": [
+    {"word": "keyword", "direction": "rising" | "falling" | "stable", "change": "e.g. +120% increase"}
+  ]
 }
 
-Articles to analyse:
-${articleText}
+Include 2-3 alerts and 4-6 language_trends based on the articles. Return only valid JSON, no other text.
 
-Return only valid JSON, no other text.`;
+Articles to analyse:
+${articleText}`;
 
   try {
     const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
@@ -39,7 +45,7 @@ Return only valid JSON, no other text.`;
         model: 'llama-3.1-8b-instant',
         messages: [{ role: 'user', content: prompt }],
         temperature: 0.3,
-        max_tokens: 500
+        max_tokens: 900
       })
     });
 

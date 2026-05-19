@@ -94,6 +94,27 @@ async function runAnalysis(articles, company) {
         </div>
       </div>
     `;
+
+    if (analysis.alerts && analysis.alerts.length) {
+      document.getElementById('alerts-list').innerHTML = analysis.alerts.map(a => `
+        <div class="alert-card ${a.level}">
+          <div class="alert-header">
+            <span class="alert-tag ${a.level}">${a.level.charAt(0).toUpperCase() + a.level.slice(1)} Signal</span>
+          </div>
+          <p class="alert-title">${a.title}</p>
+          <p class="alert-detail">${a.detail}</p>
+        </div>
+      `).join('');
+    }
+
+    if (analysis.language_trends && analysis.language_trends.length) {
+      document.getElementById('trends-grid').innerHTML = analysis.language_trends.map(t => `
+        <div class="trend-card ${t.direction}">
+          <p class="trend-word">"${t.word}"</p>
+          <p class="trend-stat">${t.direction === 'rising' ? '▲' : t.direction === 'falling' ? '▼' : '→'} ${t.change}</p>
+        </div>
+      `).join('');
+    }
   } catch (err) {
     document.getElementById('ai-analysis').innerHTML = '<p class="loading">Analysis unavailable.</p>';
   }
