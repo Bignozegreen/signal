@@ -4,7 +4,10 @@ topics.forEach(function (item) {
     topics.forEach(function (t) { t.classList.remove('active'); });
     this.classList.add('active');
     const company = this.textContent.trim();
+    document.querySelector('.page-title').textContent = company;
+    document.querySelector('.page-sub').textContent = 'Narrative analysis · Loading...';
     loadDashboard(company);
+    document.getElementById('ai-analysis').scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 });
 
