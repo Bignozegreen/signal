@@ -1,6 +1,5 @@
 const form = document.getElementById('waitlist-form');
 const btn = document.getElementById('join-btn');
-const input = document.getElementById('email-input');
 const confirm = document.getElementById('confirm-message');
 
 form.addEventListener('submit', async function (e) {
@@ -8,17 +7,26 @@ form.addEventListener('submit', async function (e) {
   btn.textContent = 'Joining...';
   btn.disabled = true;
 
-  const response = await fetch('https://formspree.io/f/mjgzkqwb', {
-    method: 'POST',
-    headers: { 'Accept': 'application/json' },
-    body: new FormData(form)
-  });
+  const email = document.getElementById('email-input').value.trim();
 
-  if (response.ok) {
-    form.style.display = 'none';
-    confirm.classList.remove('hidden');
-    confirm.classList.add('confirm');
-  } else {
+  try {
+    const response = await fetch('/api/waitlist', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email })
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      form.style.display = 'none';
+      confirm.classList.remove('hidden');
+      confirm.classList.add('confirm');
+    } else {
+      btn.textContent = 'Try again';
+      btn.disabled = false;
+    }
+  } catch (err) {
     btn.textContent = 'Try again';
     btn.disabled = false;
   }
