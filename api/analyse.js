@@ -51,7 +51,9 @@ ${articleText}`;
 
     const data = await response.json();
     const content = data.choices[0].message.content;
-    const analysis = JSON.parse(content);
+    const match = content.match(/\{[\s\S]*\}/);
+    if (!match) throw new Error('No JSON in response');
+    const analysis = JSON.parse(match[0]);
     res.status(200).json(analysis);
   } catch (err) {
     res.status(500).json({ error: 'Analysis failed' });

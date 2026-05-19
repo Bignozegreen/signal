@@ -14,6 +14,8 @@ topics.forEach(function (item) {
 async function loadDashboard(company) {
   document.getElementById('news-list').innerHTML = '<p class="loading">Loading live news...</p>';
   document.getElementById('ai-analysis').innerHTML = '<p class="loading">Analysing narrative...</p>';
+  document.getElementById('alerts-list').innerHTML = '<p class="loading">Loading signals...</p>';
+  document.getElementById('trends-grid').innerHTML = '<p class="loading">Loading trends...</p>';
 
   const url = `/api/news?company=${encodeURIComponent(company)}`;
 
