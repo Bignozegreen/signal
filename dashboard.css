@@ -45,9 +45,22 @@ body {
   padding-left: 0.5rem;
 }
 
+.sidebar-nav {
+  overflow-y: auto;
+  flex: 1;
+}
+
 .sidebar-nav ul {
   list-style: none;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.nav-section {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #44445a;
+  margin: 1rem 0 0.4rem 0.5rem;
 }
 
 .sidebar-nav ul li {

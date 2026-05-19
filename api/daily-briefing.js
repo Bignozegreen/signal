@@ -1,5 +1,5 @@
 export default async function handler(req, res) {
-  const topics = ['Apple', 'Tesla', 'Nvidia', 'Bitcoin', 'OpenAI'];
+  const topics = ['Apple', 'Microsoft', 'Nvidia', 'Tesla', 'Amazon', 'Google', 'Meta', 'Netflix', 'AMD', 'Palantir', 'Bitcoin', 'Ethereum', 'Solana', 'XRP', 'Dogecoin', 'HSBC', 'Barclays', 'BP', 'AstraZeneca', 'Rolls-Royce', 'Federal Reserve', 'Inflation', 'Recession', 'Interest Rates', 'Artificial Intelligence', 'Electric Vehicles', 'Defence', 'Oil', 'Gold', 'OpenAI'];
   const guardianKey = process.env.Guardian;
   const groqKey = process.env.GROQ_API_KEY;
   const resendKey = process.env.RESEND_API_KEY;
