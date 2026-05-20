@@ -96,6 +96,10 @@ async function runAnalysis(articles, company) {
 
     document.querySelector('.page-sub').textContent = `Narrative analysis · Updated just now`;
 
+    // Update today's briefing
+    document.getElementById('briefing-date').textContent = new Date().toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+    document.getElementById('briefing-text').textContent = analysis.summary;
+
     document.getElementById('ai-analysis').innerHTML = `
       <div class="ai-card">
         <div class="ai-header">
