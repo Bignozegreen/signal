@@ -73,6 +73,29 @@ async function runAnalysis(articles, company) {
       'Negative': '#f87171'
     }[analysis.sentiment] || '#8888aa';
 
+    // Update score cards
+    const scoreEl = document.getElementById('score-value');
+    scoreEl.innerHTML = `${analysis.score} <span>/ 100</span>`;
+    scoreEl.className = `score-value ${analysis.score >= 60 ? 'positive' : analysis.score >= 40 ? 'neutral' : 'negative'}`;
+    document.getElementById('score-change').textContent = analysis.score_change || '';
+
+    const toneEl = document.getElementById('tone-shift');
+    toneEl.textContent = analysis.tone_shift || analysis.sentiment;
+    toneEl.className = `score-value ${analysis.sentiment === 'Positive' ? 'positive' : analysis.sentiment === 'Negative' ? 'negative' : 'neutral'}`;
+    document.getElementById('tone-shift-previous').textContent = analysis.tone_shift_previous || '';
+
+    const overallEl = document.getElementById('overall-sentiment');
+    overallEl.textContent = analysis.sentiment;
+    overallEl.className = `score-value ${analysis.sentiment === 'Positive' ? 'positive' : analysis.sentiment === 'Negative' ? 'negative' : 'neutral'}`;
+    document.getElementById('overall-sentiment-sub').textContent = `Narrative score: ${analysis.score}/100`;
+
+    const communityEl = document.getElementById('community-sentiment');
+    communityEl.textContent = analysis.community_sentiment || '—';
+    communityEl.className = `score-value ${['Excited','Bullish'].includes(analysis.community_sentiment) ? 'positive' : ['Anxious','Bearish'].includes(analysis.community_sentiment) ? 'negative' : 'neutral'}`;
+    document.getElementById('community-sentiment-change').textContent = analysis.community_sentiment_change || '';
+
+    document.querySelector('.page-sub').textContent = `Narrative analysis · Updated just now`;
+
     document.getElementById('ai-analysis').innerHTML = `
       <div class="ai-card">
         <div class="ai-header">

@@ -18,6 +18,11 @@ export default async function handler(req, res) {
 {
   "sentiment": "Positive" | "Neutral" | "Cautious" | "Negative",
   "score": number between 0-100,
+  "score_change": "e.g. +8 from last week" or "-5 from last week",
+  "tone_shift": "one word like Confident, Cautious, Optimistic, Fearful, Neutral",
+  "tone_shift_previous": "e.g. Was: Optimistic · recently",
+  "community_sentiment": "one word like Excited, Anxious, Neutral, Bullish, Bearish",
+  "community_sentiment_change": "e.g. Shifted recently or Stable",
   "summary": "2-3 sentence plain English summary of the narrative",
   "key_signals": ["signal 1", "signal 2", "signal 3"],
   "tone_words": ["word1", "word2", "word3", "word4"],
@@ -45,7 +50,7 @@ ${articleText}`;
         model: 'llama-3.1-8b-instant',
         messages: [{ role: 'user', content: prompt }],
         temperature: 0.3,
-        max_tokens: 900
+        max_tokens: 1200
       })
     });
 
